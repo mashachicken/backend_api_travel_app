@@ -1,19 +1,19 @@
-class Seed
+Review.destroy_all
 
-  def self.begin
-    seed = Seed.new
-    seed.generate_addresses
-  end
-
-  def generate_addresses
-    20.times do |i|
-      address = Address.create!(
-        country: Faker::Address.country,
-        city: Faker::Address.city
-      )
-      puts "I am #{i} and this is my review of #{address.city}, #{address.country}."
-    end
-  end
+50.times do |index|
+  Review.create!(name: Faker::Name.first_name,
+                        content: Faker::Lorem.sentence(word_count: 3),
+                        rating: Faker::Number.within(range: 1..5))
 end
 
-Seed.begin
+p "Created #{Review.count} reviews"
+
+Place.destroy_all
+
+50.times do |index|
+  Place.create!(country: Faker::Address.country,
+                        city: Faker::Address.city)
+
+end
+
+p "Created #{Place.count} places"

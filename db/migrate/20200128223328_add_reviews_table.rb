@@ -4,6 +4,6 @@ class AddReviewsTable < ActiveRecord::Migration[5.2]
       t.column :name, :string
       t.column :content, :string
       t.column :rating, :integer
-      t.column :picture, :url
+    end
   end
 end
