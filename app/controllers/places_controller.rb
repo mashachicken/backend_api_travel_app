@@ -1,8 +1,8 @@
 class PlacesController < ApplicationController
-  def index
-    @places = {"location": "Portland."}
-    json_response(@places)
-  end
+  # def index
+  #   @places = {"location": "Portland."}
+  #   # json_response(@places)
+  # end
 
   def index
     @places = Place.all
